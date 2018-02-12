@@ -9,7 +9,7 @@ var client = new Twitter({
 var count = 0;
 
 setInterval(() => {
-    count = 1;
+    count = count + 1;
     TweetNew();
 }, 3600000);
 
