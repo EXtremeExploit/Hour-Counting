@@ -21,7 +21,7 @@ function TweetNew() {
         status: getNewNumber(),
     }, function (error, tweet, response) {
         if (error) {
-            throw error;
+            console.error(error);
             return;
         } else {
             console.log('Tweeted ' + getNewNumber());
