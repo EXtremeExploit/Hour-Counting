@@ -1,5 +1,5 @@
 console.log('Starting...');
-const Twitter = require('twitter');
+const Twitter = require('twit');
 var client = new Twitter({
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
     consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
@@ -16,13 +16,14 @@ setInterval(() => {
 
 function TweetNew() {
     client.post('statuses/update', {
-        status: getNewNumber()
+        status: getNewNumber(),
     }, function (error, tweet, response) {
         if (error) throw error;
+        console.log('Tweeted ' + getNewNumber());
     });
 }
 
 function getNewNumber() {
-    return count;
+    return count.toString();
 }
 console.log('Started!');
