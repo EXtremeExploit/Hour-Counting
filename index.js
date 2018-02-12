@@ -18,14 +18,14 @@ setInterval(() => {
 
 function TweetNew() {
     client.post('statuses/update', {
-        status: getNewNumber(),
+        status: getNewNumber()
     }, function (error, tweet, response) {
         if (error) {
             console.error(error.message);
             console.error(error.name);
             return;
         } else {
-            console.log('Tweeted ' + getNewNumber());
+            console.log('Tweeted: ' + getNewNumber());
         }
     });
 }
