@@ -9,6 +9,8 @@ var client = new Twitter({
 
 var count = 0;
 
+TweetNew();
+
 setInterval(() => {
     count = count + 1;
     TweetNew();
