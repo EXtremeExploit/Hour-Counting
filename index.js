@@ -1,3 +1,4 @@
+console.log('Starting...');
 const Twitter = require('twitter');
 var client = new Twitter({
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -24,3 +25,4 @@ function TweetNew() {
 function getNewNumber() {
     return count;
 }
+console.log('Started!');
