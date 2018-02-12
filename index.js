@@ -20,8 +20,12 @@ function TweetNew() {
     client.post('statuses/update', {
         status: getNewNumber(),
     }, function (error, tweet, response) {
-        if (error) throw error;
-        console.log('Tweeted ' + getNewNumber());
+        if (error) {
+            throw error;
+            return;
+        } else {
+            console.log('Tweeted ' + getNewNumber());
+        }
     });
 }
 
