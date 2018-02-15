@@ -18,19 +18,28 @@ setInterval(() => {
 
 function TweetNew() {
     client.post('statuses/update', {
-        status: getNewNumber()
+        status: count
     }, function (error, tweet, response) {
         if (error) {
             console.error(error.message);
             console.error(error.name);
             return;
         } else {
-            console.log('Tweeted: ' + getNewNumber());
+            if (count >= 24) {
+                ResetCount();
+            }
+            console.log('Tweeted: ' + count);
         }
     });
 }
 
-function getNewNumber() {
-    return count.toString();
+function ResetCount() {
+    client.post('statuses/update', {
+        status: 'The day has ended!, Starting again!'
+    }).then((e) => {
+        process.exit();
+    });
+    count = 0;
 }
+
 console.log('Started!');
