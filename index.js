@@ -10,7 +10,7 @@ var client = new Twitter({
 var d = new Date();
 while (true) {
     d = new Date(); 
-    if ((d.getUTCMinutes() == '00') && (d.getUTCSeconds() == '00') && (d.getUTCMilliseconds() == '0')) {
+    if ((d.getUTCMinutes() == '00') && (d.getUTCSeconds() == '00')) {
         Tweet();
     }
 }
