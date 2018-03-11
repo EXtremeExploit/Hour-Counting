@@ -8,6 +8,7 @@ var client = new Twitter({
 });
 
 var d = new Date();
+Tweet();
 while (true) {
     d = new Date(); 
     if ((d.getUTCMinutes() == '00') && (d.getUTCSeconds() == '00')) {
