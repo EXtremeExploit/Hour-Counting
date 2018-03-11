@@ -7,6 +7,15 @@ var client = new Twitter({
     access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 });
 
+var d = new Date();
+Tweet();
+setInterval(() => {
+    d = new Date();
+    if ((d.getUTCMinutes() == '00') && (d.getUTCSeconds() == '00')) {
+        Tweet();
+    }
+
+}, 500);
 
 function Tweet() {
     client.post('statuses/update', {
@@ -34,13 +43,3 @@ function ResetCount() {
 }
 
 console.log('Started!');
-
-
-var d = new Date();
-Tweet();
-while (true) {
-    d = new Date();
-    if ((d.getUTCMinutes() == '00') && (d.getUTCSeconds() == '00')) {
-        Tweet();
-    }
-}
