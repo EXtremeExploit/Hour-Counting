@@ -7,28 +7,27 @@ var client = new Twitter({
     access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 });
 
-var count = 0;
+var d = new Date();
+while (true) {
+    d = new Date(); 
+    if ((d.getUTCMinutes() == '00') && (d.getUTCSeconds() == '00') && (d.getUTCMilliseconds() == '0')) {
+        Tweet();
+    }
+}
 
-TweetNew();
-
-setInterval(() => {
-    count = count + 1;
-    TweetNew();
-}, 3600000);
-
-function TweetNew() {
+function Tweet() {
     client.post('statuses/update', {
-        status: count
-    }, function (error, tweet, response) {
+        status: new Date().getUTCHours()
+    }, (error, tweet, response) => {
         if (error) {
             console.error(error.message);
             console.error(error.name);
             return;
         } else {
-            if (count >= 24) {
+            if (d.getUTCHours() == 00) {
                 ResetCount();
             }
-            console.log('Tweeted: ' + count);
+            console.log('Tweeted: ' + d.getUTCHours());
         }
     });
 }
@@ -39,7 +38,6 @@ function ResetCount() {
     }).then((e) => {
         process.exit();
     });
-    count = 0;
 }
 
 console.log('Started!');
