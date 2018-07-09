@@ -23,7 +23,6 @@ function Tweet() {
     }, (error, tweet, response) => {
         if (error) {
             console.error(error.message);
-            console.error(error.name);
             return;
         } else {
             if (d.getUTCHours() == 00) {
