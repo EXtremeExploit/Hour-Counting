@@ -35,7 +35,7 @@ function Tweet() {
 
 function ResetCount() {
     client.post('statuses/update', {
-        status: 'The day has ended!, Starting again!'
+        status: 'The day has ended!, It\'s rewind time!'
     }).then((e) => {
         process.exit();
     });
